@@ -1,0 +1,27 @@
+Text-Only Emotion Recognition Results
+
+Model Architecture:
+DistilBERT + Dense Classifier
+
+Dataset:
+Toronto Emotional Speech Set (TESS)
+
+Important Note:
+Emotion labels were removed from filenames before training to avoid data leakage.
+
+Training Configuration:
+- Model: distilbert-base-uncased
+- Batch Size: 8
+- Epochs: 3
+- Optimizer: AdamW
+- Learning Rate: 2e-5
+- Max Token Length: 20
+
+Results:
+Accuracy: 12.5%
+
+Observation:
+The text-only model performed poorly because the textual content in TESS consists mainly of short neutral words such as "back", "bar", and "base". These words are repeated across different emotion classes, so the text does not contain strong emotional information.
+
+Conclusion:
+Text-only classification is weak for this dataset. This shows that speech carries stronger emotional cues than text in TESS.

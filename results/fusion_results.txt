@@ -1,0 +1,28 @@
+Multimodal Fusion Emotion Recognition Results
+
+Model Architecture:
+MFCC + BiLSTM speech encoder
+DistilBERT text encoder
+Late Fusion using concatenation
+Dense classifier
+
+Dataset:
+Toronto Emotional Speech Set (TESS)
+
+Training Configuration:
+- Batch Size: 8
+- Epochs: 3
+- Optimizer: AdamW
+- Learning Rate: 2e-5
+
+Results:
+Accuracy: 36.60%
+
+Observation:
+The fusion model performed better than the text-only model but worse than the speech-only model.
+
+Reason:
+The text modality in TESS contains mostly neutral words repeated across all emotions. Because of this, the text branch adds weak or noisy information to the fusion model.
+
+Conclusion:
+Fusion helps compared to text-only classification, but speech-only remains the strongest modality for this dataset.

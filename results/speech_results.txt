@@ -1,0 +1,66 @@
+Speech-Only Emotion Recognition Results
+
+Model Architecture:
+MFCC Feature Extraction + BiLSTM + Dense Classifier
+
+Dataset:
+Toronto Emotional Speech Set (TESS)
+
+Training Configuration:
+- Sampling Rate: 16000 Hz
+- MFCC Features: 40
+- Batch Size: 32
+- Epochs: 10
+- Optimizer: Adam
+- Learning Rate: 0.001
+
+Results:
+Accuracy: 99.82%
+
+Classification Performance:
+
+Emotion      Precision    Recall    F1-score
+Angry         1.00         1.00       1.00
+Disgust       0.99         1.00       0.99
+Fear          1.00         1.00       1.00
+Happy         1.00         1.00       1.00
+Neutral       1.00         1.00       1.00
+Surprise      1.00         0.99       0.99
+Sad           1.00         1.00       1.00
+
+Observations:
+- The model achieved very high accuracy on the TESS dataset.
+- Emotional patterns were effectively captured using MFCC features and BiLSTM temporal modeling.
+- Minor misclassification was observed in surprise and disgust classes.
+- High accuracy may be influenced by controlled recording conditions and clear emotional expressions in the dataset.
+
+
+Inference Testing:
+
+Custom Audio Test:
+Input Audio: User-recorded speech sample(1.wav)
+Predicted Emotion: Surprise
+
+Observation:
+The trained speech model successfully generalized to unseen speech input and predicted emotional content from user-provided audio.
+
+Confusion Matrix Analysis:
+
+Observations:
+- Angry, Disgust, Neutral, and Sad emotions achieved perfect classification.
+- Fear was confused with Angry in one sample.
+- Happy was confused with Angry in one sample.
+- Surprise was confused with Disgust in one sample.
+
+Analysis:
+The confusion occurred between emotions with similar vocal characteristics such as high intensity and strong pitch variations. Overall, the model showed strong separability among emotional classes.
+
+t-SNE Feature Visualization Analysis:
+
+Observations:
+- Distinct clusters are formed for different emotional classes.
+- Most emotions are clearly separated in feature space.
+- Small overlaps exist between certain emotional groups with similar vocal characteristics.
+
+Conclusion:
+The extracted MFCC features combined with BiLSTM temporal modeling produced highly discriminative emotional representations.
