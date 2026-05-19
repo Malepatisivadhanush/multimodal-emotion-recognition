@@ -1,0 +1,112 @@
+MULTIMODAL EMOTION RECOGNITION USING SPEECH AND TEXT
+
+1. Introduction
+
+Emotion recognition is an important task in human-computer interaction and artificial intelligence. This project aims to identify emotions using speech signals, text data, and multimodal fusion techniques.
+
+The system predicts seven emotions:
+
+- Angry
+- Disgust
+- Fear
+- Happy
+- Neutral
+- Surprise
+- Sad
+
+Dataset used:
+Toronto Emotional Speech Set (TESS)
+
+------------------------------------------------------------
+
+2. Architecture Decisions
+
+Speech Pipeline:
+Audio
+→ MFCC Feature Extraction
+→ BiLSTM
+→ Dense Layer
+→ Emotion Prediction
+
+Reason:
+MFCC captures speech characteristics such as pitch and frequency, while BiLSTM captures temporal patterns.
+
+------------------------------------------------------------
+
+Text Pipeline:
+
+Text
+→ DistilBERT
+→ Dense Layer
+→ Emotion Prediction
+
+Reason:
+DistilBERT captures contextual information from text efficiently.
+
+------------------------------------------------------------
+
+Fusion Pipeline:
+
+Speech Features
++
+Text Features
+→ Concatenation
+→ Dense Layer
+→ Emotion Prediction
+
+Reason:
+Fusion combines information from multiple modalities.
+
+------------------------------------------------------------
+
+3. Experimental Results
+
+Speech-only Accuracy:
+99.82%
+
+Text-only Accuracy:
+12.5%
+
+Fusion Accuracy:
+36.6%
+
+------------------------------------------------------------
+
+4. Analysis
+
+Speech-only model achieved highest accuracy because emotional information is strongly present in speech signals.
+
+Text-only model showed weak performance because TESS contains repeated neutral words with limited emotional meaning.
+
+Fusion model improved over text-only performance but was affected by weak text features.
+
+------------------------------------------------------------
+
+5. Confusion Matrix Analysis
+
+Most emotional classes were classified correctly.
+
+Minor confusion was observed between:
+
+Fear and Angry
+
+Happy and Angry
+
+Surprise and Disgust
+
+------------------------------------------------------------
+
+6. t-SNE Analysis
+
+Distinct emotion clusters were observed.
+
+The learned speech features created good separability among emotional classes.
+
+------------------------------------------------------------
+
+7. Future Improvements
+
+- Real-time prediction
+- Attention-based fusion
+- Better textual datasets
+- Streamlit deployment
