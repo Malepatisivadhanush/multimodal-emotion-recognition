@@ -15,13 +15,12 @@ print("Using:", device)
 
 dataset = FusionEmotionDataset()
 
-train_size = int(0.8 * len(dataset))
-test_size = len(dataset) - train_size
+with open("data/splits/train.txt") as f:
+    train_indices = [int(x.strip()) for x in f.readlines()]
 
-train_data, test_data = random_split(
+train_data = torch.utils.data.Subset(
     dataset,
-    [train_size, test_size],
-    generator=torch.Generator().manual_seed(42)
+    train_indices
 )
 
 train_loader = DataLoader(
@@ -31,11 +30,27 @@ train_loader = DataLoader(
 )
 
 model = FusionEmotionModel().to(device)
+speech_weights = torch.load(
+    "models/speech_pipeline/speech_model.pth",
+    map_location=device
+)
+
+fusion_weights = model.state_dict()
+
+for key in speech_weights:
+    if key.startswith("lstm"):
+        new_key = key.replace("lstm", "speech_lstm")
+        if new_key in fusion_weights:
+            fusion_weights[new_key] = speech_weights[key]
+
+model.load_state_dict(fusion_weights)
+
+print("Loaded pretrained speech encoder into fusion model")
 
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
+optimizer = torch.optim.AdamW(model.parameters(), lr=0.001)
 
-epochs = 3
+epochs = 10
 
 for epoch in range(epochs):
     model.train()

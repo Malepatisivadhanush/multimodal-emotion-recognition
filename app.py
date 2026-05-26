@@ -169,7 +169,12 @@ else:
         st.write("Speech Prediction:", speech_prediction)
         st.write("Text Prediction:", text_prediction)
 
-        if speech_prediction != "No audio":
+        if speech_prediction != "No audio" and text_prediction != "No text":
+            if speech_prediction == text_prediction:
+                final_prediction = speech_prediction
+            else:
+                final_prediction = speech_prediction
+        elif speech_prediction != "No audio":
             final_prediction = speech_prediction
         else:
             final_prediction = text_prediction

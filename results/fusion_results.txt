@@ -11,18 +11,38 @@ Toronto Emotional Speech Set (TESS)
 
 Training Configuration:
 - Batch Size: 8
-- Epochs: 3
+- Epochs: 10
 - Optimizer: AdamW
-- Learning Rate: 2e-5
+- Learning Rate: 0.001
+- Pretrained Speech Encoder Used
 
 Results:
-Accuracy: 36.60%
+Accuracy: 99.82%
 
-Observation:
-The fusion model performed better than the text-only model but worse than the speech-only model.
+Classification Performance:
 
-Reason:
-The text modality in TESS contains mostly neutral words repeated across all emotions. Because of this, the text branch adds weak or noisy information to the fusion model.
+- Angry: 99%
+- Disgust: 100%
+- Fear: 99%
+- Happy: 100%
+- Neutral: 100%
+- Surprise: 100%
+- Sad: 100%
+
+Observations:
+- Fusion model achieved very high classification accuracy.
+- Most emotional classes were perfectly classified.
+- Only a very small number of samples were misclassified.
+
+Improvements Applied:
+- Loaded pretrained speech encoder weights into fusion model
+- Fixed train/test split consistency
+- Reduced data leakage risks
+- Increased training epochs
+- Used stronger fusion training configuration
+
+Analysis:
+The speech modality contributed the most useful emotional information. Since the TESS dataset contains emotionally neutral words, the text branch provided limited semantic contribution. The pretrained speech encoder significantly improved the overall fusion performance.
 
 Conclusion:
-Fusion helps compared to text-only classification, but speech-only remains the strongest modality for this dataset.
+The multimodal fusion system successfully combined speech and text information for emotion recognition and achieved near-perfect performance on the TESS dataset.

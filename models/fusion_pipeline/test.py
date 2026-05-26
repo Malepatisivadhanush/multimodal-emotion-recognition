@@ -14,13 +14,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 dataset = FusionEmotionDataset()
 
-train_size = int(0.8 * len(dataset))
-test_size = len(dataset) - train_size
+with open("data/splits/test.txt") as f:
+    test_indices = [int(x.strip()) for x in f.readlines()]
 
-_, test_data = random_split(
+test_data = torch.utils.data.Subset(
     dataset,
-    [train_size, test_size],
-    generator=torch.Generator().manual_seed(42)
+    test_indices
 )
 
 test_loader = DataLoader(
