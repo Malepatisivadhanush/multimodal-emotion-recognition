@@ -4,9 +4,9 @@
 
 This project aims to recognize human emotions using:
 
-1. Speech-only input
-2. Text-only input
-3. Multimodal input (Speech + Text)
+- Speech-only input
+- Text-only input
+- Multimodal input (Speech + Text)
 
 The system extracts emotional information from speech signals and textual data, then compares the performance of different approaches.
 
@@ -14,7 +14,7 @@ The system extracts emotional information from speech signals and textual data, 
 
 ## Objective
 
-Build an emotion recognition system capable of predicting:
+Build an emotion recognition system capable of predicting the following emotions:
 
 - Angry
 - Disgust
@@ -31,8 +31,8 @@ Build an emotion recognition system capable of predicting:
 ### Dataset Used
 Toronto Emotional Speech Set (TESS)
 
-The dataset contains:
-- Speech audio samples (.wav)
+### Dataset Contains
+- Speech audio samples (`.wav`)
 - Emotion labels
 - Multiple emotion categories
 
@@ -40,7 +40,7 @@ The dataset contains:
 
 ## Model Architectures
 
-### Speech Pipeline
+### 1. Speech Pipeline
 
 ```text
 Input Audio
@@ -50,7 +50,7 @@ Input Audio
 → Emotion Prediction
 ```
 
-### Text Pipeline
+### 2. Text Pipeline
 
 ```text
 Input Text
@@ -59,7 +59,7 @@ Input Text
 → Emotion Prediction
 ```
 
-### Multimodal Fusion Pipeline
+### 3. Multimodal Fusion Pipeline
 
 ```text
 Speech Features → BiLSTM
@@ -96,7 +96,8 @@ The final fusion model achieved near-perfect performance on the TESS dataset.
 
 ## Visualizations
 
-Implemented:
+Implemented visual analysis techniques:
+
 - Confusion Matrix
 - t-SNE Visualization
 - Performance Analysis
@@ -106,11 +107,12 @@ Implemented:
 ## Streamlit Demo
 
 The project includes a Streamlit-based interactive application for:
+
 - Speech emotion prediction
 - Text emotion prediction
 - Multimodal fusion prediction
 
-Run the application using:
+### Run Streamlit App
 
 ```bash
 streamlit run app.py
@@ -121,19 +123,25 @@ streamlit run app.py
 ## Folder Structure
 
 ```text
-project/
+multimodal-emotion-recognition/
 
 ├── models/
 │   ├── speech_pipeline/
 │   ├── text_pipeline/
 │   └── fusion_pipeline/
-
+│
 ├── results/
+│   └── plots/
+│
 ├── notebooks/
+│
 ├── data/
+│
 ├── app.py
+├── multimodal_predict.py
+├── requirements.txt
 ├── README.md
-└── requirements.txt
+└── generate_report.py
 ```
 
 ---
@@ -158,34 +166,89 @@ project/
 ```bash
 git clone https://github.com/Malepatisivadhanush/multimodal-emotion-recognition.git
 cd multimodal-emotion-recognition
-2. Install Requirements
+```
+
+### 2. Install Requirements
+
+```bash
 pip install -r requirements.txt
-Speech Pipeline
-Train Speech Model
+```
+
+---
+
+# Speech Pipeline
+
+## Train Speech Model
+
+```bash
 python models/speech_pipeline/train.py
-Test Speech Model
+```
+
+## Test Speech Model
+
+```bash
 python models/speech_pipeline/test.py
-Predict Emotion from Audio
+```
+
+## Predict Emotion from Audio
+
+```bash
 python models/speech_pipeline/predict.py
-Text Pipeline
-Train Text Model
+```
+
+---
+
+# Text Pipeline
+
+## Train Text Model
+
+```bash
 python models/text_pipeline/train.py
-Test Text Model
+```
+
+## Test Text Model
+
+```bash
 python models/text_pipeline/test.py
-Predict Emotion from Text
+```
+
+## Predict Emotion from Text
+
+```bash
 python models/text_pipeline/predict.py
-Fusion Pipeline
-Train Fusion Model
+```
+
+---
+
+# Fusion Pipeline
+
+## Train Fusion Model
+
+```bash
 python models/fusion_pipeline/train.py
-Test Fusion Model
+```
+
+## Test Fusion Model
+
+```bash
 python models/fusion_pipeline/test.py
-Run Multimodal Prediction
+```
+
+## Run Multimodal Prediction
+
+```bash
 python multimodal_predict.py
-Streamlit Application
+```
 
-Run the interactive demo:
+---
 
+# Streamlit Application
+
+## Run Interactive Demo
+
+```bash
 streamlit run app.py
+```
 
 ---
 
