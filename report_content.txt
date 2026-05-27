@@ -137,10 +137,34 @@ This indicates that the models learned discriminative emotional representations 
 
 ------------------------------------------------------------
 
-8. Future Improvements
+8. Visual Results
+
+Confusion Matrix:
+The confusion matrix shows that most emotional classes were classified correctly with very few misclassifications.
+
+t-SNE Visualization:
+The t-SNE visualization demonstrates strong clustering and separability among learned emotional feature representations.
+
+------------------------------------------------------------
+
+9. Future Improvements
 
 - Real-time emotion recognition
 - Attention-based fusion methods
 - Transformer-based speech models
 - Better multimodal conversational datasets
 - Real-time web deployment
+
+------------------------------------------------------------
+
+10. Conclusion
+
+This project successfully implemented speech-based, text-based, and multimodal emotion recognition systems using deep learning techniques.
+
+The speech pipeline using MFCC and BiLSTM achieved very high performance because emotional information is strongly represented in speech signals.
+
+The text pipeline showed limited performance due to the nature of the TESS dataset, where textual content carries weak emotional semantics.
+
+The multimodal fusion model combined speech and text representations effectively and achieved near-perfect classification accuracy after applying improvements such as pretrained speech encoders and proper train-test splitting.
+
+The project demonstrates the effectiveness of multimodal deep learning approaches for emotion recognition tasks.
