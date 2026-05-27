@@ -1,5 +1,8 @@
 MULTIMODAL EMOTION RECOGNITION USING SPEECH AND TEXT
 
+GitHub Repository:
+https://github.com/Malepatisivadhanush/multimodal-emotion-recognition
+
 1. Introduction
 
 Emotion recognition is an important task in human-computer interaction and artificial intelligence. This project aims to identify emotions using speech signals, text data, and multimodal fusion techniques.
