@@ -19,7 +19,24 @@ Toronto Emotional Speech Set (TESS)
 
 ------------------------------------------------------------
 
-2. Architecture Decisions
+2. Preprocessing
+
+Speech Preprocessing:
+
+- Audio files were loaded using Librosa.
+- Sampling rate was standardized to 16 kHz.
+- MFCC (Mel Frequency Cepstral Coefficients) features were extracted.
+- Variable-length audio signals were padded/truncated to fixed dimensions.
+
+Text Preprocessing:
+
+- Emotion labels were cleaned and standardized.
+- Text inputs were tokenized using DistilBERT tokenizer.
+- Input IDs and attention masks were generated for transformer processing.
+
+------------------------------------------------------------
+
+3. Architecture Decisions
 
 Speech Pipeline:
 
@@ -60,7 +77,7 @@ Fusion combines complementary information from multiple modalities for improved 
 
 ------------------------------------------------------------
 
-3. Experimental Results
+4. Experimental Results
 
 Speech-only Accuracy:
 99.82%
@@ -73,7 +90,7 @@ Fusion Accuracy:
 
 ------------------------------------------------------------
 
-4. Analysis
+5. Analysis
 
 The speech-only model achieved very high accuracy because emotional information is strongly present in speech signals through pitch, tone, energy, and frequency variations.
 
@@ -90,11 +107,15 @@ These improvements significantly increased fusion performance.
 
 The pretrained speech encoder played a major role in improving the fusion model because emotional information in TESS is primarily carried through acoustic signals rather than textual semantics.
 
+Among the emotional classes, Neutral, Sad, and Disgust were easiest to classify because their speech patterns were highly distinguishable in the dataset.
+
+Fear and Angry occasionally showed minor confusion because both emotions can share similar acoustic intensity and energy patterns.
+
 The final fusion model achieved near-perfect accuracy on the TESS dataset.
 
 ------------------------------------------------------------
 
-5. Confusion Matrix Analysis
+6. Confusion Matrix Analysis
 
 Most emotional classes were classified correctly with near-perfect precision and recall.
 
@@ -104,15 +125,19 @@ The confusion matrix demonstrated strong separability between emotional classes.
 
 ------------------------------------------------------------
 
-6. t-SNE Analysis
+7. t-SNE Analysis
+
+t-SNE visualization was used to analyze the learned feature representations produced by the models.
 
 Distinct emotion clusters were observed in the learned feature space.
 
-The extracted speech features created good separability among emotional classes, indicating effective feature learning by the model.
+The temporal modelling block (BiLSTM), contextual modelling block (DistilBERT), and fusion representations showed good separability among emotional classes.
+
+This indicates that the models learned discriminative emotional representations effectively.
 
 ------------------------------------------------------------
 
-7. Future Improvements
+8. Future Improvements
 
 - Real-time emotion recognition
 - Attention-based fusion methods
