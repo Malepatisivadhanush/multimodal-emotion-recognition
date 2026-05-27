@@ -147,7 +147,21 @@ The t-SNE visualization demonstrates strong clustering and separability among le
 
 ------------------------------------------------------------
 
-9. Future Improvements
+9. Streamlit Application
+
+A Streamlit-based interactive web application was developed for real-time emotion prediction.
+
+The application supports:
+
+- Speech emotion prediction using uploaded audio files
+- Text emotion prediction using user-entered text
+- Multimodal fusion prediction using both speech and text inputs
+
+The Streamlit interface provides an easy-to-use demonstration of the trained models and enables interactive testing of emotion recognition capabilities.
+
+------------------------------------------------------------
+
+10. Future Improvements
 
 - Real-time emotion recognition
 - Attention-based fusion methods
@@ -157,7 +171,7 @@ The t-SNE visualization demonstrates strong clustering and separability among le
 
 ------------------------------------------------------------
 
-10. Conclusion
+11. Conclusion
 
 This project successfully implemented speech-based, text-based, and multimodal emotion recognition systems using deep learning techniques.
 

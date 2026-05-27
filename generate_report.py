@@ -2,7 +2,8 @@ from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
     Spacer,
-    Image
+    Image,
+    PageBreak
 )
 
 from reportlab.lib import styles
@@ -39,6 +40,7 @@ for line in content:
 
 # Add space before images
 story.append(Spacer(1, 20))
+story.append(PageBreak())
 
 # Add confusion matrix heading
 story.append(
@@ -60,6 +62,8 @@ story.append(
 )
 
 story.append(Spacer(1, 20))
+
+story.append(PageBreak())
 
 # Add t-SNE heading
 story.append(
