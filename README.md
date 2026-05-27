@@ -151,6 +151,44 @@ project/
 
 ---
 
+## Installation and Execution Steps
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/Malepatisivadhanush/multimodal-emotion-recognition.git
+cd multimodal-emotion-recognition
+2. Install Requirements
+pip install -r requirements.txt
+Speech Pipeline
+Train Speech Model
+python models/speech_pipeline/train.py
+Test Speech Model
+python models/speech_pipeline/test.py
+Predict Emotion from Audio
+python models/speech_pipeline/predict.py
+Text Pipeline
+Train Text Model
+python models/text_pipeline/train.py
+Test Text Model
+python models/text_pipeline/test.py
+Predict Emotion from Text
+python models/text_pipeline/predict.py
+Fusion Pipeline
+Train Fusion Model
+python models/fusion_pipeline/train.py
+Test Fusion Model
+python models/fusion_pipeline/test.py
+Run Multimodal Prediction
+python multimodal_predict.py
+Streamlit Application
+
+Run the interactive demo:
+
+streamlit run app.py
+
+---
+
 ## Future Improvements
 
 - Real-time emotion detection
